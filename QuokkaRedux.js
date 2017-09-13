@@ -1,6 +1,6 @@
 //Note these exercises are best done with quokka 
 
-//What is state
+//What is state? State for the whole application. 
 let state = {
     state: "is an object",
     has: "properties",
@@ -98,6 +98,7 @@ function updateAge(age) {
 }
 
 function reducer(state, action) {
+    //SINGLE POINT OF TRUTH
     switch (action.type) {
         case "update_age":
             return Object.assign({}, state, { age: action.age })

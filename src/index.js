@@ -15,7 +15,7 @@ import { Provider } from 'react-redux' //Notice react-redux, not redux.
 let topLevelComponentWithStore = ( 
     <Provider store={store}>
         <App />
-</Provider>)
+    </Provider>)
 
 ReactDOM.render(topLevelComponentWithStore, document.getElementById('root'));
 registerServiceWorker();

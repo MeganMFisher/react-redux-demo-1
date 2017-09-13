@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 //This is a reducer file, in projects we're going to call it a duck (re-duck, get it?!)
 //We put all action builders and the reducer function in here.
 //We can make as many reducers as we want, in as many files as we want to split up our code in easier to understand chunks.
@@ -26,7 +28,7 @@ export function addPerson(age, name) {
 export function getPeople(){
     return {
         type: GET_PEOPLE,
-        payload: axios.get('URL TO GET PEOPLE')
+        payload: axios.get('URL TO GET PEOPLE') 
     }
 }
 
@@ -46,10 +48,17 @@ export default function (state = initialState, action) {
             let { name, age } = action;
             peopleCopy.push({ name, age })
             return Object.assign({}, state, { people: peopleCopy })
-        case GET_PEOPLE + "_FULFILLED":
+        case GET_PEOPLE + "_PENDING": //when you start
+            return Object.assign({}, state, {isLoading: true})
+        case GET_PEOPLE + "_FULFILLED": //when you are done
+        // .then(function(payload){
+
+        // })
             let data = action.payload //The response data is found here put it on state or do stuff
-        case GET_PEOPLE + "_REJECTED":
+            return data;
+        case GET_PEOPLE + "_REJECTED": //when you didn't work
             let data = action.payload
+            return data;
     }
 
     return state;

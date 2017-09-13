@@ -62,9 +62,9 @@ function mapStateToProps(state) {
 // We importeded these up above with this line of code :
 // import {updateAge, addPerson} from './reducer'
 let outputActions = {
-  updateName,
-  addPerson
-}
+  updateName, //updateName = updateName
+  addPerson //addPerson = addPerson
+} 
 
 let reduxInsAndOuts = connect(mapStateToProps, outputActions)
 export default reduxInsAndOuts(App);
